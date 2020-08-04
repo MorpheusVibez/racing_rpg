@@ -6,6 +6,7 @@ class CreateDrivers < ActiveRecord::Migration[6.0]
       t.string :nationality
       t.integer :total_wins
       t.integer :pole_positions
+      t.integer :team_id
 
       t.timestamps
     end
