@@ -1,4 +1,4 @@
 class Car < ApplicationRecord
-   belongs_to :team
+   has_many :teams
    has_many :drivers, through: :teams
 end
