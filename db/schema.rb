@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_135127) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
-    t.string "permanent_number"
+    t.integer "permanent_number"
     t.string "nationality"
     t.integer "total_wins"
     t.integer "pole_positions"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 2020_08_02_135127) do
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.string "nationality"
-    t.string "driver_id"
-    t.string "car_id"
-    t.string "user_id"
+    t.integer "driver_id"
+    t.integer "car_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

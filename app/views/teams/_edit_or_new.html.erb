@@ -1,0 +1,18 @@
+<%= form_for(@team) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <br>
+      <br>
+      <%= f.label "Nationality" %>
+      <%= f.text_field :nationality %>
+      <br>
+      <br>
+      
+            User: <%= user_select(@team, @path) %>
+            <br>
+            <br>
+      <%= f.submit "Confirm" %>
+    
+      
+<% end %>

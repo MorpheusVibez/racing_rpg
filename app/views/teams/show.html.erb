@@ -1,0 +1,37 @@
+<h1> <%= @team.name %> Racing Team</h1> 
+
+<h2> Info: </h2>
+    
+    <ul> <h3> Name: <%= @team.name %> </h3> </ul>
+    <ul> <h3> Nationality: <%= @team.nationality %> </h3> </ul>
+    <ul> <h3> Cars: <% @team.cars.each do |car| %> 
+                        <ol> <%= car.name %> </ol>
+                        <% end %> </h3> </ul> 
+    <ul> <h3> Drivers: <% @team.drivers.each do |driver| %>
+                        <ol> <%= driver.name %> </ol>
+                        <% end %> </h3> </ul> 
+    <br>
+    <br>
+    <% if @team.user_id == current_user.id %>
+    
+        <%= link_to "User Profile", user_path(@team.user_id)  %>
+        <% else %>
+        <h2> Not Your team </h2>
+        <% end  %>
+<br>
+<br> 
+<%= link_to 'All Teams', teams_path %>
+<br>
+<br> 
+<%= link_to 'Add Driver to Team', new_team_driver_path(current_user) %>
+<br>
+<br> 
+<% if @team.user_id == current_user.id %>   
+    <%= link_to 'Edit', edit_user_team_path(current_user) %>
+    <br>
+    <br>
+    <%= link_to 'Delete', user_team_path(current_user), method: :delete %>
+    <% end %>
+<br>
+<br>
+<%= link_to 'Log Out', logout_path, method: :post %>

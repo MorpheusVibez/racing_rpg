@@ -1,0 +1,29 @@
+<h1>Welcome <%= current_user.username %></h1>
+
+<h2> My Info: </h2>
+    <ul> <%= current_user.name %> </ul>
+    Teams:
+    <ul> <% current_user.teams.each do |team| %> 
+            <ol> <%= link_to team.name, user_team_path(current_user, team) %> </ol>
+            <% end %>
+    </ul>
+    Drivers:
+    <ul> <%  current_user.drivers.each do |driver| %>
+           <ol> <%= link_to driver.name, user_driver_path(current_user, driver) %> </ol>
+         <% end %>
+    </ul>
+    <br>
+
+<%= link_to 'Add Team', new_user_team_path(current_user) %>
+<br>
+<br>
+<%= link_to 'All Teams', teams_path %>
+<br>
+<br>
+<%= link_to 'Add Driver', new_user_driver_path(current_user) %>
+<br>
+<br>
+<%= link_to 'Edit', edit_user_path(current_user) %>
+<br>
+<br>
+<%= link_to 'Log Out', logout_path, method: :post %>

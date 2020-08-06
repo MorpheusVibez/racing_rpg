@@ -1,0 +1,25 @@
+<%= form_for(@driver) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <br>
+      <br>
+      <%= f.label :permanent_number %>
+      <%= f.number_field :permanent_number %>
+      <br>
+      <br>
+      <%= f.label :nationality %>
+      <%= f.text_field :nationality %>
+      <br>
+      <br>
+      <%= f.label "Total Wins" %>
+      <%= f.number_field :total_wins %>
+      <br>
+      <br>
+            <%# <%= display_name_device(@driver, @path) %> %>
+            <%= team_select(@driver, @path) %>
+            
+      <%= f.submit "Confirm" %>
+    
+      
+<% end %>

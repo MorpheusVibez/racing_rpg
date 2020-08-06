@@ -1,0 +1,7 @@
+<h1>Apps Homepage </h1>
+
+<% @apps.each do |app| %>
+   <h3> <%= link_to app.name, app_path(app) %> </h3>
+<% end %>
+
+<%= link_to 'User Profile', user_path(current_user) %>

@@ -1,0 +1,7 @@
+<h1>Team Homepage </h1>
+
+<% @teams.each do |team| %>
+   <h3> <%= link_to team.name, team_path(team) %> </h3>
+<% end %>
+
+<%= link_to 'User Profile', user_path(current_user) %>
