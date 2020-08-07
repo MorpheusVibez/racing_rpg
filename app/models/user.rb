@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :teams
     has_many :drivers, through: :teams
     
+    validates :name, presence: :true
     validates :username, presence: :true
     validates :username, uniqueness: :true
     accepts_nested_attributes_for :teams

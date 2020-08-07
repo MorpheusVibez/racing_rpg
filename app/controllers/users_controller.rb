@@ -11,9 +11,14 @@ class UsersController < ApplicationController
 
     def create
         # raise params.inspect
-        @user = User.create(user_params)
+        @user = User.new(user_params)
+        if @user.save
         session[:user_id] = @user.id
         redirect_to user_path(@user)
+        else
+            render :new
+            flash[:err] = "you have entered incorrect information please try again"
+        end
     end
 
     def show
