@@ -10,13 +10,14 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :teams
-    resources :drivers
   end
 
   resources :teams do
     resources :drivers
     resources :cars
   end
+
+  resources :drivers
 
   resources :sessions, only: [ :new, :create, :destroy]
 end

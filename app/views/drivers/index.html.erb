@@ -1,7 +1,7 @@
-<h1>Apps Homepage </h1>
+<h1>Drivers Homepage </h1>
 
-<% @apps.each do |app| %>
-   <h3> <%= link_to app.name, app_path(app) %> </h3>
+<% @drivers.each do |driver| %>
+   <h3> <%= link_to driver.name, driver_path(driver) %> </h3>
 <% end %>
 
 <%= link_to 'User Profile', user_path(current_user) %>

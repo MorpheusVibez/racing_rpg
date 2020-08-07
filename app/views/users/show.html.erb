@@ -17,10 +17,7 @@
 <%= link_to 'Add Team', new_user_team_path(current_user) %>
 <br>
 <br>
-<%= link_to 'All Teams', teams_path %>
-<br>
-<br>
-<%= link_to 'Add Driver', new_user_driver_path(current_user) %>
+<%= link_to 'All User Teams', user_teams_path(current_user) %>
 <br>
 <br>
 <%= link_to 'Edit', edit_user_path(current_user) %>
