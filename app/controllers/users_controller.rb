@@ -17,7 +17,6 @@ class UsersController < ApplicationController
         redirect_to user_path(@user)
         else
             render :new
-            flash[:err] = "you have entered incorrect information please try again"
         end
     end
 
