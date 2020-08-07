@@ -8,7 +8,7 @@ class DriversController < ApplicationController
         @driver = Driver.new(driver_params)
         # raise params.inspect
         if @driver.save
-            redirect_to team_driver_path(@driver)
+            redirect_to team_driver_path(@driver.team, @driver)
         else
             render :new
         end
@@ -16,13 +16,16 @@ class DriversController < ApplicationController
 
     def index
         all_drivers
+        current_user.teams.each do |team|
+            @team = team
+        end
     end
 
     def show
         # binding.pry
-        if params[:user_id]
-            @user = User.find_by(id: params[:user_id])
-            @driver = @user.drivers.find_by(id: params[:id])
+        if params[:team_id]
+            @team = Team.find_by(id: params[:team_id])
+            @driver = @team.drivers.find_by(id: params[:id])
             if @driver.nil?
                 redirect_to team_drivers_path(current_user)
             end
@@ -32,14 +35,14 @@ class DriversController < ApplicationController
     end
 
     def edit
-        # binding.pry
-        if params[:user_id] == current_user.id.to_s
-            user = User.find_by(id: params[:user_id])
-            if user.nil?
-                redirect_to users_path, alert: "User not found"
+        binding.pry
+        if current_user.team_ids.to_s.include?(params[:team_id])
+            team = Team.find_by(id: params[:team_id])
+            if team.nil?
+                redirect_to teams_path, alert: "Team not found"
             else
-                @driver = user.drivers.find_by(id: params[:id])
-                redirect_to team_drivers_path(current_user.id), alert: "driver not found" if @driver.nil?
+                @driver = Driver.find_by(id: params[:id])
+                redirect_to team_drivers_path(current_user.id), alert: "car not found" if @car.nil?
             end
         else
             find_driver

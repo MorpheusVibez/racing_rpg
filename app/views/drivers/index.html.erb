@@ -1,7 +1,9 @@
 <h1>Drivers Homepage </h1>
 
 <% @drivers.each do |driver| %>
-   <h3> <%= link_to driver.name, driver_path(driver) %> </h3>
+   <% if driver.team_id == @team.id %>
+   <h3> <%= link_to driver.name, team_driver_path(@team, driver) %> </h3>
+   <% end %>
 <% end %>
 
 <%= link_to 'User Profile', user_path(current_user) %>

@@ -5,10 +5,10 @@
     <ul> <h3> Name: <%= @team.name %> </h3> </ul>
     <ul> <h3> Nationality: <%= @team.nationality %> </h3> </ul>
     <ul> <h3> Cars: <% @team.cars.each do |car| %> 
-                        <ol> <%= car.name %> </ol>
+                        <ol> <%= link_to car.name, team_car_path(@team.id, car) %> </ol>
                         <% end %> </h3> </ul> 
     <ul> <h3> Drivers: <% @team.drivers.each do |driver| %>
-                        <ol> <%= driver.name %> </ol>
+                        <ol> <%= link_to driver.name, team_driver_path(@team.id, driver) %> </ol>
                         <% end %> </h3> </ul> 
     <br>
     <br>
@@ -20,10 +20,13 @@
         <% end  %>
 <br>
 <br> 
-<%= link_to 'All Teams', teams_path %>
+<%= link_to 'All User Teams', user_teams_path(current_user) %>
 <br>
 <br> 
 <%= link_to 'Add Driver to Team', new_team_driver_path(@team.id) %>
+<br>
+<br> 
+<%= link_to 'Add Car to Team', new_team_car_path(@team.id) %>
 <br>
 <br> 
 <% if @team.user_id == current_user.id %>   

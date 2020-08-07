@@ -9,7 +9,7 @@
     </ul>
     Drivers:
     <ul> <%  current_user.drivers.each do |driver| %>
-           <ol> <%= link_to driver.name, user_driver_path(current_user, driver) %> </ol>
+           <ol> <%= link_to driver.name, team_driver_path(current_user, driver) %> </ol>
          <% end %>
     </ul>
     <br>

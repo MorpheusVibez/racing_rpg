@@ -1,0 +1,14 @@
+<%= form_for(@car) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <br>
+      <br>
+            Team: <%= car_team_select(@team, @path) %>
+            Driver: <%= driver_select(@driver, @path) %>
+            <br>
+            <br>
+      <%= f.submit "Confirm" %>
+    
+      
+<% end %>

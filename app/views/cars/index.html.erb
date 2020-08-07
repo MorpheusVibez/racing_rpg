@@ -1,0 +1,7 @@
+<h1>Car Homepage </h1>
+
+<% @cars.each do |car| %>
+   <h3> <%= link_to car.name, team_car_path(car.team_id, car) %> </h3>
+<% end %>
+
+<%= link_to 'User Profile', user_path(current_user) %>

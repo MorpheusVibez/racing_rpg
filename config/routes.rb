@@ -19,5 +19,7 @@ Rails.application.routes.draw do
 
   resources :drivers
 
+  resources :cars
+
   resources :sessions, only: [ :new, :create, :destroy]
 end
